@@ -25,8 +25,23 @@ we have to add some intercept-urls in 'spring-security.xml' than Spring will wor
 permission to view private pages will redirect to 'Spring default access denied page'
 Example : <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" /> just ROLE_ADMIN can access this page.
 So to create custom access denied page and redirect to user to it we have to add 'error-page' to 'web.xml' and add this line 
-'<access-denied-handler error-page="/accessDenied"/>' to 'spring-security.xml' than handle this url in '@Controller'
+<i><access-denied-handler error-page="/accessDenied"/></i> to 'spring-security.xml' than handle this url in '@Controller'
 [SecurityController] page.
+</pre>
+
+#Database connection and injecting to security.xml : 
+<pre>
+If we use xml configuration with Spring we have to set all connection configurations in 'spring-config.xml'.
+We alredy created our connection properties with 'id="dataSource"' and as like we said above 'spring-security.xml' need to check
+the username and password from database thats why we will give this connection to 'spring-security.xml' with this line : 
+'<b:import resource="spring-config.xml" />' than we need to add connection id in tag jdbc-user-service 
+like this : <jdbc-user-service data-source-ref="dataSource"> and Spring will use this connection.
+</pre>
+
+#Note : 
+<pre>
+We also can use default Spring login page, default access denied page or without connection to database like : 
+<a href="https://www.mkyong.com/spring-security/spring-security-hello-world-annotation-example/">Spring Security Annotation Example</a> | <a href="https://www.mkyong.com/spring-security/spring-security-hello-world-example/">Spring Security without db connection Example</a>
 </pre>
 
 I hope this help you.
