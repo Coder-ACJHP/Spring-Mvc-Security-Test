@@ -1,22 +1,22 @@
-# Spring-Security-Test-Application
+# Spring-MVC & Security-Test-Application
 With Spring security & Spring MVC working on authentication, authorization [csrf].
 
 #Login : 
-<p>
+<pre>
  Application starting with custom login page (not Spring login page) with name 'login.jsp' and 'spring-security.xml' will
  handle the authentication op. with checking 'username & password' from database[go to below] if the user found will send the url to 
  'default-target-url="/hello"' else 'authentication-failure-url="/login?error=true" ' thats mean 'spring-security.xml' will
  redirect the user to 'login' page with message in 'sessionScope['SPRING_SECURITY_LAST_EXCEPTION'].message' while login op.
  end successfully.
-</p>
+</pre>
 
 #Log out : 
-<p>
+<pre>
 When user pressing 'Logout' button application will send the user to '/j_spring_security_logout' with hidden 
 '${_csrf.parameterName}' and '${_csrf.token}' in POST method because <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html/csrf.html">_csrf </a>
 need to invalidate session with spessific UID and '@Controller'[SecurityController] page will handle it and will log it out. 
 Than will redirect the user to 'login' page again.
-</p>
+</pre>
 
 #Access denied :
 <pre>
