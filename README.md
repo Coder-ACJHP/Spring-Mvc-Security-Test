@@ -1,7 +1,7 @@
 # Spring-MVC & Security-Test-Application
 With Spring security & Spring MVC working on authentication, authorization [csrf].
 
-#Login : 
+<h3>Login :</h3> 
 <pre>
  Application starting with custom login page (not Spring login page) with name 'login.jsp' and 'spring-security.xml' will
  handle the authentication op. with checking 'username & password' from database[go to below] if the user found will send the url to 
@@ -10,7 +10,7 @@ With Spring security & Spring MVC working on authentication, authorization [csrf
  end successfully.
 </pre>
 
-#Log out : 
+<h3>Log out :</h3>  
 <pre>
 When user pressing 'Logout' button application will send the user to '/j_spring_security_logout' with hidden 
 '${_csrf.parameterName}' and '${_csrf.token}' in POST method because <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html/csrf.html">_csrf </a>
@@ -18,7 +18,7 @@ need to invalidate session with spessific UID and '@Controller'[SecurityControll
 Than will redirect the user to 'login' page again.
 </pre>
 
-#Access denied :
+<h3>Access denied :</h3> 
 <pre>
 All users have some role like 'ROLE_USER' or 'ROLE_ADMIN' we need to prevent all users to access 'admin' page or panel to do this
 we have to add some intercept-urls in 'spring-security.xml' than Spring will work as we want and when the user that doesn't have
@@ -29,7 +29,7 @@ So to create custom access denied page and redirect to user to it we have to add
 [SecurityController] page.
 </pre>
 
-#Database connection and injecting to security.xml : 
+<h3>Database connection and injecting to security.xml :</h3> 
 <pre>
 If we use xml configuration with Spring we have to set all connection configurations in 'spring-config.xml'.
 We alredy created our connection properties with 'id="dataSource"' and as like we said above 'spring-security.xml' need to check
@@ -38,7 +38,7 @@ the username and password from database thats why we will give this connection t
 like this : <jdbc-user-service data-source-ref="dataSource"> and Spring will use this connection.
 </pre>
 
-#Note : 
+<h3>Note :</h3>  
 <pre>
 We also can use default Spring login page, default access denied page or without connection to database like : 
 <a href="https://www.mkyong.com/spring-security/spring-security-hello-world-annotation-example/">Spring Security Annotation Example</a> | <a href="https://www.mkyong.com/spring-security/spring-security-hello-world-example/">Spring Security without db connection Example</a>
