@@ -12,6 +12,8 @@
 
 	<mvc:annotation-driven />
 
+	<mvc:resources location="/resources/" mapping="/resources/**" />
+	
 	<context:component-scan base-package="com.coder.spring.security.*" />
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -25,7 +27,7 @@
 
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost/jsf_auth?characterEncoding=utf8"></property>
+		<property name="url" value="jdbc:mysql://localhost/jsf_auth?characterEncoding=utf8&amp;useSSL=false"></property>
 		<property name="username" value="Coder"></property>
 		<property name="password" value="CoderDb958"></property>
 	</bean>
